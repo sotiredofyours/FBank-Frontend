@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterFormComponent implements OnInit {
 
-  hide = true;
+  hideFirst = true;
+  hideSecond = true;
 
   constructor() { }
 

@@ -12,13 +12,15 @@ import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RegisterFormComponent } from './forms/register-form/register-form.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AuthFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
