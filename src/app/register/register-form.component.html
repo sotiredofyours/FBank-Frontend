@@ -1,0 +1,43 @@
+<form class = "registerForm" [formGroup]="formGroup">
+  <div class="flex lg:justify-between justify-center items-center rounded m-10 ">
+    <mat-card>
+      <mat-card-header class="text-2xl mx-12"><h1>Register</h1></mat-card-header>
+      <mat-card-content>
+        <p>
+          <mat-form-field appearance="outline" class="w-full" >
+            <mat-label>Enter your login</mat-label>
+            <input matInput placeholder="Login" formControlName="login">
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Enter your password</mat-label>
+            <input matInput placeholder="Password"
+                   [type]="hideFirst? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix
+                    (click)="hideFirst = !hideFirst">
+              <mat-icon>{{hideFirst? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error
+              *ngIf="formGroup.hasError('required', 'password')">This field is required</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm password</mat-label>
+            <input  matInput placeholder="Password"
+                    [type]="hideSecond? 'password' : 'text'">
+            <button mat-icon-button matSuffix
+                    (click)="hideSecond = !hideSecond">
+              <mat-icon>{{hideSecond? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </p>
+      </mat-card-content>
+      <button class="w-full h-10 " mat-raised-button color="primary" (click)="RegisterHandler()">Sign in</button>
+      <mat-error
+        *ngIf="formError" class = "mt-5">{{formError}}</mat-error>
+    </mat-card>
+  </div>
+</form>
