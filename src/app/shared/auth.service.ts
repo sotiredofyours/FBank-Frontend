@@ -15,10 +15,8 @@ export class AuthService {
 
   constructor(private client:HttpClient) { }
 
-  authenticate(username:string, password:string):Observable<any>{
+  authenticate():Observable<any>{
     return this.client.post(AUTHENTICATE_API, {
-      username,
-      password,
     },httpOptions)
   }
 }

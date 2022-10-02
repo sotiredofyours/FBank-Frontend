@@ -16,7 +16,7 @@ export class AuthFormComponent implements OnInit {
   }
 
   AuthHandler():void{
-    this.authService.authenticate("TonyStark2", "superStrongPass123").subscribe(data=>{
+    this.authService.authenticate("TonyStark2").subscribe(data=>{
       window.localStorage.setItem("accessToken", data.accessToken);
       window.localStorage.setItem("refreshToken", data.refreshToken);
     }, error => {
