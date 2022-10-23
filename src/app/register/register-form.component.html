@@ -1,25 +1,23 @@
-<form class = "registerForm" [formGroup]="formGroup">
-  <div class="flex lg:justify-between justify-center items-center rounded m-10 ">
-    <mat-card>
-      <mat-card-header class="text-2xl mx-12"><h1>Register</h1></mat-card-header>
+<div class="main">
+  <form class="register-form" [formGroup]="formGroup">
+    <mat-card class="register-form">
+      <mat-card-header class="text-2xl mx-12">
+        <h1>Register</h1>
+      </mat-card-header>
       <mat-card-content>
         <p>
-          <mat-form-field appearance="outline" class="w-full" >
+          <mat-form-field appearance="outline" class="w-full">
             <mat-label>Enter your login</mat-label>
             <input matInput placeholder="Login" formControlName="login">
-            <mat-error
-              *ngIf="formGroup.hasError('required', 'login')">This field is required
+            <mat-error *ngIf="formGroup.hasError('required', 'login')">This field is required
             </mat-error>
-            <mat-error
-              *ngIf="formGroup.hasError('pattern', 'login')">
+            <mat-error *ngIf="formGroup.hasError('pattern', 'login')">
               Login must be w/o whitespaces and specific characters
             </mat-error>
-            <mat-error
-              *ngIf="formGroup.hasError('minlength', 'login')">
+            <mat-error *ngIf="formGroup.hasError('minlength', 'login')">
               Login length should be at least 4 characters
             </mat-error>
-            <mat-error
-              *ngIf="formGroup.hasError('maxlength', 'login')">
+            <mat-error *ngIf="formGroup.hasError('maxlength', 'login')">
               Login cannot exceed more than 20 characters
             </mat-error>
           </mat-form-field>
@@ -27,26 +25,20 @@
         <p>
           <mat-form-field appearance="outline">
             <mat-label>Enter your password</mat-label>
-            <input matInput placeholder="Password"
-                   [type]="hideFirst? 'password' : 'text'" formControlName="password">
-            <button mat-icon-button matSuffix
-                    (click)="hideFirst = !hideFirst">
+            <input matInput placeholder="Password" [type]="hideFirst? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hideFirst = !hideFirst">
               <mat-icon>{{hideFirst? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-            <mat-error
-              *ngIf="formGroup.hasError('required', 'password')">
+            <mat-error *ngIf="formGroup.hasError('required', 'password')">
               This field is required
             </mat-error>
-            <mat-error
-            *ngIf="formGroup.hasError('pattern', 'password')">
+            <mat-error *ngIf="formGroup.hasError('pattern', 'password')">
               Password must be w/o whitespaces and specific characters
             </mat-error>
-            <mat-error
-            *ngIf="formGroup.hasError('minlength', 'password')">
+            <mat-error *ngIf="formGroup.hasError('minlength', 'password')">
               Password length should be at least 6 characters
             </mat-error>
-            <mat-error
-              *ngIf="formGroup.hasError('maxlength', 'password')">
+            <mat-error *ngIf="formGroup.hasError('maxlength', 'password')">
               Password cannot exceed more than 20 characters
             </mat-error>
           </mat-form-field>
@@ -54,20 +46,16 @@
         <p>
           <mat-form-field appearance="outline">
             <mat-label>Confirm password</mat-label>
-            <input  matInput placeholder="Password" formControlName="repeatPassword"
-                    [type]="hideSecond? 'password' : 'text'">
-            <button mat-icon-button matSuffix
-                    (click)="hideSecond = !hideSecond">
+            <input matInput placeholder="Password" formControlName="repeatPassword"
+              [type]="hideSecond? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hideSecond = !hideSecond">
               <mat-icon>{{hideSecond? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
           </mat-form-field>
-
         </p>
       </mat-card-content>
-      <button class="w-full h-10 " mat-raised-button color="primary"
-              [disabled]= "formGroup.invalid || !!formError"
-              (click)="RegisterHandler()">Sign in</button>
+      <button class="w-full h-10 " mat-raised-button color="primary" [disabled]="formGroup.invalid || !!formError"
+        (click)="RegisterHandler()">Sign in</button>
     </mat-card>
-
-  </div>
-</form>
+  </form>
+</div>

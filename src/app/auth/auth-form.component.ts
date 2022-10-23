@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../shared/auth.service";
+import { AuthService } from "../services/auth.service";
 
 
 @Component({
@@ -16,7 +16,7 @@ export class AuthFormComponent implements OnInit {
   }
 
   AuthHandler():void{
-    this.authService.authenticate("TonyStark2").subscribe(data=>{
+    this.authService.authenticate().subscribe(data=>{
       window.localStorage.setItem("accessToken", data.accessToken);
       window.localStorage.setItem("refreshToken", data.refreshToken);
     }, error => {

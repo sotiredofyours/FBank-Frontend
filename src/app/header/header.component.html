@@ -1,12 +1,11 @@
-<header class="h-15 w-full">
-  <div class="text-right mb-0.5">
-    <div class="inline-block m-3 ">
-      <button mat-raised-button color="primary" (click)="goToSignIn('signin')">Sign In</button>
-    </div>
-    <div class= "inline-block m-3 ">
-      <button mat-raised-button color="primary" (click)="goToSignIn('register')">Register</button>
+<header>
+  <div class="wrapper">
+    <div class="nav">
+      <a routerLink="/" class="main-link link">Functional Bank</a>
+      <ul class="menu">
+        <li><a routerLink="/signin" class="link">Sign In</a></li>
+        <li><a routerLink="/register" class="link">Register</a></li>
+      </ul>
     </div>
   </div>
 </header>
-
-
