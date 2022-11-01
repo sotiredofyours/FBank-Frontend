@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {FormGroup} from "@angular/forms";
+import {User} from "../models/User";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,7 +17,8 @@ export class AuthService {
 
   constructor(private client:HttpClient) { }
 
-  authenticate():Observable<any>{
-    return this.client.get(AUTHENTICATE_API, httpOptions)
+  authenticate(formGroup:FormGroup):Observable<any>{
+    let user:User = {username:formGroup.value.login, password:formGroup.value.password};
+    return this.client.post(AUTHENTICATE_API, JSON.stringify(user),httpOptions);
   }
 }

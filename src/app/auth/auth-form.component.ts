@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../services/auth.service";
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../services/auth.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 
 @Component({
@@ -10,13 +11,23 @@ import { AuthService } from "../services/auth.service";
 export class AuthFormComponent implements OnInit {
 
   hide = true;
-  constructor(private authService:AuthService) { }
+  formGroup: FormGroup = new FormGroup('');
 
-  ngOnInit(): void {
+
+  constructor(private authService: AuthService) {
   }
 
-  AuthHandler():void{
-    this.authService.authenticate().subscribe(data=>{
+  ngOnInit(): void {
+    this.formGroup = new FormGroup({
+      login: new FormControl('',
+        [Validators.required, Validators.minLength(4), Validators.maxLength(50), Validators.pattern('^[\\w\\s]*$')]),
+      password: new FormControl('',
+        [Validators.required, Validators.minLength(6), Validators.maxLength(20), Validators.pattern('^[\\w\\s\\d]*$')])
+    })
+  }
+
+  AuthHandler(): void {
+    this.authService.authenticate(this.formGroup).subscribe(data => {
       window.localStorage.setItem("accessToken", data.accessToken);
       window.localStorage.setItem("refreshToken", data.refreshToken);
     }, error => {

@@ -14,7 +14,6 @@ export class RegisterFormComponent implements OnInit {
   hideSecond = true;
   @Input() formError = '';
   formGroup: FormGroup = new FormGroup('');
-  isEqual = true;
 
   constructor(private registerService: RegisterService) {
   }
@@ -37,12 +36,11 @@ export class RegisterFormComponent implements OnInit {
     this.registerService.register(this.formGroup)
       .subscribe(
         {
-          next: () => {
-            console.log("Вы успешно зарегистрировались")
+          next: (response) => {
+            console.log(response);
           },
-          error: error => {
-            if (error.status === 409) this.formError = "Login already taken.";
-            else console.log("Something break")
+          error: () => {
+            console.log("smth wrong")
           },
         })
   }
