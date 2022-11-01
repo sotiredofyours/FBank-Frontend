@@ -15,6 +15,8 @@ import { RegisterFormComponent } from './register/register-form.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { AccountsComponent } from './accounts/accounts.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     HeaderComponent,
     AuthFormComponent,
     RegisterFormComponent,
-    FooterComponent
+    FooterComponent,
+    AccountsComponent,
+    AccountComponent
   ],
     imports: [
         BrowserModule,
