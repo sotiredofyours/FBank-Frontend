@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { RegisterService } from "../services/register.service";
-import { FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, Input, OnInit} from '@angular/core';
+import {RegisterService} from "../services/register.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {matchPasswords} from "../validators/matchPasswords";
 
 

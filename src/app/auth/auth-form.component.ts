@@ -28,10 +28,8 @@ export class AuthFormComponent implements OnInit {
 
   AuthHandler(): void {
     this.authService.authenticate(this.formGroup).subscribe(data => {
-      window.localStorage.setItem("accessToken", data.accessToken);
-      window.localStorage.setItem("refreshToken", data.refreshToken);
-    }, error => {
-      console.log(error)
-    })
+      localStorage.setItem("accessToken", data.accessToken);
+      localStorage.setItem("refreshToken", data.refreshToken);
+    });
   }
 }
