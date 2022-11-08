@@ -1,3 +1,15 @@
-{{account.Guid}}
-{{account.Balance}}
-{{account.Currency}}
+<div class="account">
+  <div>Номер счёта: {{account.id}}</div>
+  <div>Валюта: {{account.currency}}</div>
+  <div>Баланс: {{account.balance}}</div>
+  <button mat-button color="primary">Внести средства</button>
+  <button mat-button color="primary">Снять средства</button>
+  <button mat-button color="primary">Удалить счёт</button>
+<!--  <div >Выберите валюту-->
+<!--  <select id="selectvalue">-->
+<!--    <option>RUB</option>-->
+<!--    <option>USD</option>-->
+<!--  </select>-->
+<!--  </div>-->
+ <input matInput value="Введите сумму" class="inputR">
+</div>

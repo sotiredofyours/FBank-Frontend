@@ -1,5 +1,5 @@
 export interface Account{
-  Currency: string;
-  Balance: number;
-  Guid: string;
+  currency: string;
+  balance: number;
+  id: string;
 }

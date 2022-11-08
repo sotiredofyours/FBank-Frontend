@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {RegisterService} from "../services/register.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {matchPasswords} from "../validators/matchPasswords";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -15,7 +16,7 @@ export class RegisterFormComponent implements OnInit {
   @Input() formError = '';
   formGroup: FormGroup = new FormGroup('');
 
-  constructor(private registerService: RegisterService) {
+  constructor(private registerService: RegisterService, private router:Router) {
   }
 
   ngOnInit(): void {
@@ -36,8 +37,8 @@ export class RegisterFormComponent implements OnInit {
     this.registerService.register(this.formGroup)
       .subscribe(
         {
-          next: (response) => {
-            console.log(response);
+          next: () => {
+            this.router.navigate(['/sigin']);
           },
           error: () => {
             console.log("smth wrong")

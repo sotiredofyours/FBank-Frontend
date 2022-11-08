@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <div *ngIf="accounts.length==0">
+    Счетов нет
+  </div>
+  <div *ngFor="let acc of accounts">
+    <app-account [account]="acc"></app-account>
+  </div>
+</div>
+<div class="buttons">
+  <button mat-button color="primary">Создать счёт</button>
+</div>

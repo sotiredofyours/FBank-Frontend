@@ -12,4 +12,13 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  isAuth():boolean{
+    let token = localStorage.getItem('accessToken');
+    return !!token;
+
+  }
+  logout():void{
+    localStorage.removeItem('accessToken');
+  }
 }

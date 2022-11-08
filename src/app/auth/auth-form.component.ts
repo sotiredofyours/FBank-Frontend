@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../services/auth.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -14,7 +15,7 @@ export class AuthFormComponent implements OnInit {
   formGroup: FormGroup = new FormGroup('');
 
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router:Router) {
   }
 
   ngOnInit(): void {
@@ -30,6 +31,7 @@ export class AuthFormComponent implements OnInit {
     this.authService.authenticate(this.formGroup).subscribe(data => {
       localStorage.setItem("accessToken", data.accessToken);
       localStorage.setItem("refreshToken", data.refreshToken);
+      this.router.navigate(['/accounts']);
     });
   }
 }

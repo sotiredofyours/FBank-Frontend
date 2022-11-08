@@ -3,8 +3,9 @@
     <div class="nav">
       <a routerLink="/" class="main-link link">Functional Bank</a>
       <ul class="menu">
-        <li><a routerLink="/signin" class="link">Sign In</a></li>
-        <li><a routerLink="/register" class="link">Register</a></li>
+        <li><a routerLink="/signin" class="link" *ngIf="!isAuth()">Sign In</a></li>
+        <li><a routerLink="/register" class="link" *ngIf="!isAuth()">Register</a></li>
+        <a class="link" (click)="logout()" *ngIf="isAuth()">Logout</a>
       </ul>
     </div>
   </div>
