@@ -27,13 +27,19 @@ export class AccountComponent implements OnInit {
   }
 
   onAdd():void{
-    this.account.balance += this.sum;
-    console.log(this.account.balance + this.sum)
+    this.account.balance += +this.sum;
     this.accountService.changeAccount(this.account.id, this.account.balance).subscribe(()=>{
       window.location.reload()
       this.isAdd = !this.isAdd;
     })
+  }
 
+  onTake():void{
+    this.account.balance -= +this.sum;
+    this.accountService.changeAccount(this.account.id, this.account.balance).subscribe(()=>{
+      window.location.reload()
+      this.isTake = !this.isTake;
+    })
   }
 
 

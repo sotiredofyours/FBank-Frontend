@@ -3,11 +3,16 @@
   <div>Валюта: {{account.currency}}</div>
   <div>Баланс: {{account.balance}}</div>
   <button mat-button color="primary" (click)="isAdd = !isAdd">Внести средства</button>
-  <button mat-button color="primary">Снять средства</button>
+  <button mat-button color="primary" (click)="isTake = !isTake">Снять средства</button>
   <button mat-button color="primary" (click)="onDelete()">Удалить счёт</button>
-  <div *ngIf="isAdd || isTake">
+  <div *ngIf="isAdd">
     <input matInput placeholder="Введите сумму"
            [ngModelOptions]="{standalone: true}" [(ngModel)]="sum" class="input">
     <button mat-button color="primary" (click)="onAdd()">Внести средства</button>
+  </div>
+  <div *ngIf="isTake">
+    <input matInput placeholder="Введите сумму"
+           [ngModelOptions]="{standalone: true}" [(ngModel)]="sum" class="input">
+    <button mat-button color="primary" (click)="onTake()">Снять средства</button>
   </div>
 </div>
