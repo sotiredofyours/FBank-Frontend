@@ -3,5 +3,17 @@
   max-width: 500px;
   max-height: 500px;
   margin: 20px;
+  flex-direction: column;
 }
+.create-form{
+  display: flex;
+  justify-items: center;
+}
+input{
+  margin: 10px;
+  width: 300px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
 

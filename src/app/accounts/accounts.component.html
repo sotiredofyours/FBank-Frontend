@@ -7,5 +7,23 @@
   </div>
 </div>
 <div class="buttons">
-  <button mat-button color="primary">Создать счёт</button>
+  <button *ngIf="!isCreate" mat-button color="primary" (click)="isCreate = !isCreate">Создать новый счёт</button>
+  <form>
+    <div class="create-form" *ngIf="isCreate">
+      <div>Выберите валюту
+        <select id="selectvalue"
+                [ngModelOptions]="{standalone: true}"   [(ngModel)]="currency">
+          <option>RUB</option>
+          <option>USD</option>
+        </select>
+      </div>
+      <div>
+        <input matInput placeholder="Введите начальную сумму" class="input"
+               [ngModelOptions]="{standalone: true}" [(ngModel)]="sum">
+      </div>
+      <div>
+        <button mat-button color="primary" (click)="createAccount()">Создать</button>
+      </div>
+    </div>
+  </form>
 </div>

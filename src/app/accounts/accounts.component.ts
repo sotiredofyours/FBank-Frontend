@@ -9,7 +9,11 @@ import {Account} from "../models/Account";
 })
 export class AccountsComponent implements OnInit {
 
-  accounts:Account[] = [];
+  isCreate:boolean = false;
+  accounts!:Account[];
+
+  sum!:number;
+  currency:string = "RUB";
 
   constructor(private accountService:AccountsService) { }
 
@@ -18,5 +22,13 @@ export class AccountsComponent implements OnInit {
       this.accounts = data;
     });
   }
+
+  createAccount():void {
+      this.accountService.createAccount(this.sum, this.currency).subscribe(()=>{
+        this.ngOnInit()
+        this.isCreate = !this.isCreate;
+      })
+  }
+
 
 }
