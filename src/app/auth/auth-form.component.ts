@@ -31,7 +31,8 @@ export class AuthFormComponent implements OnInit {
     this.authService.authenticate(this.formGroup).subscribe(data => {
       localStorage.setItem("accessToken", data.accessToken);
       localStorage.setItem("refreshToken", data.refreshToken);
-      this.router.navigate(['/accounts']);
+      setTimeout(()=>this.router.navigate(['/accounts']), 1000);
+
     });
   }
 }
