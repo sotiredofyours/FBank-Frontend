@@ -19,7 +19,10 @@ export class AccountsService {
   constructor(private client: HttpClient) { }
 
   getList():Observable<Account[]>{
-    return this.client.get<Account[]>(getAccountList, httpOptions);
+    return this.client.get<Account[]>(getAccountList, {
+      headers: new HttpHeaders({'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`}),
+    });
   }
 
   createAccount(value:number, currency:string):Observable<Account>{

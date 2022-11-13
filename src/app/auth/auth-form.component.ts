@@ -28,11 +28,11 @@ export class AuthFormComponent implements OnInit {
   }
 
   AuthHandler(): void {
-    this.authService.authenticate(this.formGroup).subscribe(data => {
+    this.authService.authenticate(this.formGroup).subscribe(async (data)=> {
       localStorage.setItem("accessToken", data.accessToken);
       localStorage.setItem("refreshToken", data.refreshToken);
-      setTimeout(()=>this.router.navigate(['/accounts']), 1000);
-
+     // this.router.navigate(['/accounts']);
+      await this.router.navigate(['/accounts']);
     });
   }
 }

@@ -12,6 +12,7 @@ export class AccountComponent implements OnInit {
   isAdd:boolean = false;
   isTake:boolean = false;
   sum!:number;
+  error:string ='';
 
 
   constructor(private accountService:AccountsService) { }
@@ -35,11 +36,16 @@ export class AccountComponent implements OnInit {
   }
 
   onTake():void{
-    this.account.balance -= +this.sum;
-    this.accountService.changeAccount(this.account.id, this.account.balance).subscribe(()=>{
-      window.location.reload()
-      this.isTake = !this.isTake;
-    })
+    if (Number(this.sum) && Number(this.sum) < this.account.balance) {
+      this.account.balance -= +this.sum;
+      this.accountService.changeAccount(this.account.id, this.account.balance).subscribe(() => {
+        window.location.reload()
+        this.isTake = !this.isTake;
+      })
+    }
+    else {
+      this.error = 'Wrong input';
+    }
   }
 
 

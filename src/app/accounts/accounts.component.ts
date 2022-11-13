@@ -18,7 +18,7 @@ export class AccountsComponent implements OnInit {
   constructor(private accountService:AccountsService) { }
 
   ngOnInit(): void {
-    this.accountService.getList().subscribe((data) => {
+     this.accountService.getList().subscribe(async (data) => {
       this.accounts = data;
     });
   }

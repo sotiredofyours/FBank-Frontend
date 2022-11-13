@@ -13,6 +13,9 @@
   <div *ngIf="isTake">
     <input matInput placeholder="Введите сумму"
            [ngModelOptions]="{standalone: true}" [(ngModel)]="sum" class="input">
-    <button mat-button color="primary" (click)="onTake()">Снять средства</button>
+    <button mat-button color="primary" (click)="onTake()" type = "number" >Снять средства</button>
+  </div>
+  <div class="error">
+  {{error}}
   </div>
 </div>
